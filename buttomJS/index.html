@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    
+    button {
+      border: none;
+      padding: 10px 20px;
+      font-size: 10px;
+      cursor: pointer;
+      background-color: azure;
+    }
+  </style>
+</head>
+<body>
+ 
+  <button id="red-btn">Red Button</button>
+  <button id="blue-btn">Blue Button</button>
+  <button id="green-btn">Green Button</button>
+  <button id="reset-btn">Reset</button>
+
+  <script>
+   
+    const buttons = document.querySelectorAll('button');
+    const body = document.body;
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', (e) => {
+        
+        if (e.target.id === 'reset-btn') {
+       
+          body.style.backgroundColor = '';
+          buttons.forEach((btn) => {
+            btn.style.backgroundColor = '';
+            btn.style.color = '';
+          });
+        } else {
+          
+          let color = '';
+          switch (e.target.id) {
+            case 'red-btn':
+              color = 'red';
+              break;
+            case 'blue-btn':
+              color = 'blue';
+              break;
+            case 'green-btn':
+              color = 'green';
+              break;
+          }
+
+          
+          body.style.backgroundColor = color;
+          e.target.style.backgroundColor = '';
+          e.target.style.color = '';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
